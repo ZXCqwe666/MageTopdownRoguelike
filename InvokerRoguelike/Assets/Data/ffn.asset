@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc90503d34a84f74ab461e63daeb6c0f, type: 3}
-  m_Name: spell
+  m_Name: ffn
   m_EditorClassIdentifier: 
   damage: 0
   manaCost: 0
