@@ -6,9 +6,16 @@ public class SpellData : ScriptableObject
     public int damage;
     public int manaCost;
     public int coolDown;
-    public string id;
-    public string abilityName;
+    public string spellName;
+
+    public SpellType spellType;
 
     public GameObject spellPrefab;
+}
 
+public enum SpellType 
+{
+    directional,
+    selfCast,
+    mouseCast
 }

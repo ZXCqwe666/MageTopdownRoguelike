@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   manaCost: 0
-  coolDown: 0
-  id: 
-  abilityName: 
-  spellPrefab: {fileID: 0}
+  coolDown: 5
+  spellName: 
+  spellType: 2
+  spellPrefab: {fileID: 5200970207100040303, guid: 430ed3926789e4b4b922485c5746c3b7, type: 3}
