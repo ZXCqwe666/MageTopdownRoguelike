@@ -261,8 +261,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
+      propertyPath: test
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
+      propertyPath: wallTop
+      value: 
+      objectReference: {fileID: 11400000, guid: bc7535a7ddb690e449ba83cdf22b151a, type: 2}
+    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
       propertyPath: TestTile
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
+      propertyPath: wallTile
+      value: 
+      objectReference: {fileID: 11400000, guid: da420bf2c1f3f4c4c99b74a33e9f2f83, type: 2}
+    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
+      propertyPath: roomCount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
+      propertyPath: roomsCount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
+      propertyPath: testTileBase
+      value: 
+      objectReference: {fileID: 11400000, guid: bc7535a7ddb690e449ba83cdf22b151a, type: 2}
+    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
+      propertyPath: roomsToSpawnCount
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
