@@ -123,31 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1633365622 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1152003234152625076, guid: b57975c5528cc5c408419a5093ab4d62, type: 3}
-  m_PrefabInstance: {fileID: 1152003233639631816}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1633365623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633365622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 24
-  m_RefResolutionX: 480
-  m_RefResolutionY: 270
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
 --- !u!1001 &364404626524279155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -260,38 +235,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
-      propertyPath: test
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
-      propertyPath: wallTop
-      value: 
-      objectReference: {fileID: 11400000, guid: bc7535a7ddb690e449ba83cdf22b151a, type: 2}
-    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
-      propertyPath: TestTile
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
-      propertyPath: wallTile
-      value: 
-      objectReference: {fileID: 11400000, guid: da420bf2c1f3f4c4c99b74a33e9f2f83, type: 2}
-    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
-      propertyPath: roomCount
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
-      propertyPath: roomsCount
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
-      propertyPath: testTileBase
-      value: 
-      objectReference: {fileID: 11400000, guid: bc7535a7ddb690e449ba83cdf22b151a, type: 2}
-    - target: {fileID: 543691206600876991, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
-      propertyPath: roomsToSpawnCount
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ec88691a1a62b94e9410d01341f9aea, type: 3}
 --- !u!1001 &1152003233639631816
@@ -349,10 +292,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 1152003234152625079, guid: b57975c5528cc5c408419a5093ab4d62, type: 3}
-      propertyPath: orthographic size
-      value: 5.625
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57975c5528cc5c408419a5093ab4d62, type: 3}
 --- !u!1001 &3715468969450948752
@@ -365,6 +304,10 @@ PrefabInstance:
     - target: {fileID: 3715468969305413848, guid: 4310b7f84a8416d47b74b358743ee53d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715468969305413851, guid: 4310b7f84a8416d47b74b358743ee53d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3715468969305413852, guid: 4310b7f84a8416d47b74b358743ee53d, type: 3}
       propertyPath: m_RootOrder
