@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 580afde21c2693b4d9e00eec7c5d319c, type: 3}
-  m_Name: castleFloor
+  m_Name: castleFloorWooden
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 21300000, guid: ee04033f8bc03be4fbb39febec6abe0b, type: 3}
+  m_DefaultSprite: {fileID: 21300000, guid: 0ed2c3cce9f0ae74388504cd4a0ee179, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Neighbors: 0000000000000000000000000000000000000000000000000000000000000000
     m_Sprites:
-    - {fileID: 21300000, guid: ee04033f8bc03be4fbb39febec6abe0b, type: 3}
+    - {fileID: 21300000, guid: 0ed2c3cce9f0ae74388504cd4a0ee179, type: 3}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
     m_RuleTransform: 0

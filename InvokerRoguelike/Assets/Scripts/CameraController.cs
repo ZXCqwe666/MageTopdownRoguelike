@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -11,7 +10,7 @@ public class CameraController : MonoBehaviour
     public Transform player;
     private Vector3 mouseViewportPos, cameraTargetPosition, velocity;
     private Vector3 RoundShakeOffset, DirectionalShakeOffset;
-    private readonly float smoothTime = 0.05f, offsetStrength = 2.1f;
+    private readonly float smoothTime = 0.05f, offsetStrength = 0.75f;
 
     private void Awake()
     {
