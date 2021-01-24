@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class RoomManager : MonoBehaviour
 {
-    private Transform doorColliderTilemap;
-    public Animator[] doorAnimatorUp;
-    public Animator[] doorAnimatorSide;
+    private TilemapCollider2D tileCollider;
+    public Door[] doors;
 
     private void Start()
     {
@@ -15,26 +15,25 @@ public class RoomManager : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            foreach(Animator anim in doorAnimatorUp)
-                anim.Play("closeDoor");
-            foreach (Animator anim in doorAnimatorSide)
-                anim.Play("closeDoorSide");
             Debug.Log("entered room");
-            Destroy(doorColliderTilemap);
+            tileCollider.enabled = false;
+            foreach(Door door in doors)
+            {
+                door.CloseDoor();
+                StartCoroutine(Test());
+            }
         }
     }
     private void InitializeRoomManager()
     {
-        doorColliderTilemap = transform.Find("door_colliders");
-        doorAnimatorUp = new Animator[]
+        tileCollider = GetComponent<TilemapCollider2D>();
+    }
+    private IEnumerator Test()
+    {
+        yield return new WaitForSeconds(5f);
+        foreach (Door door in doors)
         {
-            transform.Find("doorUp").GetComponent<Animator>(),
-            transform.Find("doorDown").GetComponent<Animator>()
-        };
-        doorAnimatorSide = new Animator[]
-        {
-            transform.Find("doorLeft").GetComponent<Animator>(),
-            transform.Find("doorRight").GetComponent<Animator>()
-        };
+            door.OpenDoor();
+        }
     }
 }

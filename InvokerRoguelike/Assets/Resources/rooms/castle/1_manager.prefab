@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1852654109168467557}
   - component: {fileID: 3762208833273627781}
   - component: {fileID: 38171114079030862}
+  - component: {fileID: 4456563412435212722}
   m_Layer: 0
   m_Name: doorRight
   m_TagString: Untagged
@@ -129,6 +130,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4456563412435212722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055872045808935290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bcaba482616dd4facd8ebd0e6ef041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2135222304406640662
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +198,7 @@ GameObject:
   - component: {fileID: 1656344659517191825}
   - component: {fileID: 8738172538637316485}
   - component: {fileID: 8441774068123370306}
+  - component: {fileID: 6902844116219848224}
   m_Layer: 0
   m_Name: doorDown
   m_TagString: Untagged
@@ -293,7 +307,7 @@ Animator:
   m_GameObject: {fileID: 3481870665335761190}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 04b46e427cb29584db4bf5ead9ac9c9a, type: 2}
+  m_Controller: {fileID: 22100000, guid: 0f976d3b19a36bc478b005e7d7efd6b4, type: 2}
   m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -302,6 +316,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6902844116219848224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3481870665335761190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bcaba482616dd4facd8ebd0e6ef041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5334199972839596098
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +340,7 @@ GameObject:
   - component: {fileID: 7389733464786275553}
   - component: {fileID: 4865378991604968837}
   - component: {fileID: 8596137506066263485}
+  - component: {fileID: 1391880368005179205}
   m_Layer: 0
   m_Name: doorUp
   m_TagString: Untagged
@@ -422,7 +449,7 @@ Animator:
   m_GameObject: {fileID: 5334199972839596098}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 04b46e427cb29584db4bf5ead9ac9c9a, type: 2}
+  m_Controller: {fileID: 22100000, guid: 0f976d3b19a36bc478b005e7d7efd6b4, type: 2}
   m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -431,6 +458,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1391880368005179205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5334199972839596098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bcaba482616dd4facd8ebd0e6ef041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7012704954166848999
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,8 +989,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b99ff8d3b88654faf4ba12e149113a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorAnimatorUp: []
-  doorAnimatorSide: []
+  doors:
+  - {fileID: 1391880368005179205}
+  - {fileID: 6902844116219848224}
+  - {fileID: 862228700168678811}
+  - {fileID: 4456563412435212722}
 --- !u!1 &7032872697031453150
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +1006,7 @@ GameObject:
   - component: {fileID: 1233531669358624224}
   - component: {fileID: 6448406836240216671}
   - component: {fileID: 6567441984172405897}
+  - component: {fileID: 862228700168678811}
   m_Layer: 0
   m_Name: doorLeft
   m_TagString: Untagged
@@ -1081,3 +1124,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &862228700168678811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032872697031453150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bcaba482616dd4facd8ebd0e6ef041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
