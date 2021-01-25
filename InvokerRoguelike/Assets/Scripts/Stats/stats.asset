@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc90503d34a84f74ab461e63daeb6c0f, type: 3}
-  m_Name: ccc
+  m_Script: {fileID: 11500000, guid: ca1a9a4b26c819a46915285e372bc818, type: 3}
+  m_Name: stats
   m_EditorClassIdentifier: 
-  damage: 5
-  manaCost: 0
-  coolDown: 5
-  spellName: 
-  spellType: 0
-  spellPrefab: {fileID: 5200970207100040303, guid: 430ed3926789e4b4b922485c5746c3b7, type: 3}
+  maxHealth: 10
+  mana: 0
+  speed: 0
+  acceleration: 0

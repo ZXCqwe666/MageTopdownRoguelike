@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Vector2 inputs;
-    private readonly float startSpeed = 1f, maxSpeed = 5f, acceleration = 1f, deceleration = 3f;
+    private readonly float startSpeed = 5f, maxSpeed = 5f, acceleration = 1f, deceleration = 3f;
     private float speed;
 
     private void Start()
@@ -18,10 +18,10 @@ public class PlayerController : MonoBehaviour
         inputs.y = Input.GetAxisRaw("Vertical");
         inputs.Normalize();
 
-        if (inputs == Vector2.zero && speed > startSpeed)
+        /*if (inputs == Vector2.zero && speed > startSpeed)
             speed -= deceleration * Time.deltaTime;
         else if (speed < maxSpeed)
-            speed += acceleration * Time.deltaTime;
+            speed += acceleration * Time.deltaTime;*/
 
         rb.velocity = inputs * speed;
     }
