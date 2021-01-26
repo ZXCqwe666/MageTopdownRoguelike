@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Door : MonoBehaviour
 {
@@ -8,21 +9,28 @@ public class Door : MonoBehaviour
     void Start()
     {
         InitializeDoor();
-        OpenDoor();
     }
     private void InitializeDoor()
     {
         anim = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
+        anim.enabled = false;
     }
     public void OpenDoor()
     {
         anim.Play("openDoor");
         coll.enabled = false;
+        StartCoroutine(DisableAnimator());
     }
     public void CloseDoor()
     {
+        anim.enabled = true;
         anim.Play("closeDoor");
         coll.enabled = true;
+    }
+    private IEnumerator DisableAnimator()
+    {
+        yield return new WaitForSeconds(3f); //Change for animation duration later
+        anim.enabled = false;
     }
 }

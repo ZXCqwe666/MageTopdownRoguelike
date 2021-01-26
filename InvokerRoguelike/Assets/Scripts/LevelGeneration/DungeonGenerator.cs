@@ -141,7 +141,8 @@ public class DungeonGenerator : MonoBehaviour
             GameObject roomManager = Resources.Load<GameObject>("rooms/" + _levelData.levelName + "/" + roomName + "_manager");
             Vector3 roomManagerPosition = new Vector3(chosenRoom.position.x * _levelData.roomSize.x, chosenRoom.position.y * _levelData.roomSize.y, 0f);
             Vector3 offsetPosition = new Vector3(-_levelData.roomSize.x / 2f, -_levelData.roomSize.y / 2f, 0f);
-            Instantiate(roomManager, roomManagerPosition + offsetPosition, Quaternion.identity, transform);
+            GameObject spawnedRoomManager = Instantiate(roomManager, roomManagerPosition + offsetPosition, Quaternion.identity, transform);
+            spawnedRoomManager.transform.Find("door_colliders").GetComponent<RoomManager>().SetDoors(chosenRoom.up, chosenRoom.down, chosenRoom.left, chosenRoom.right, _levelData);
         }
 
         int2 offset = new int2(_levelData.roomSize.x * (int)chosenRoom.position.x, _levelData.roomSize.y * (int)chosenRoom.position.y);
