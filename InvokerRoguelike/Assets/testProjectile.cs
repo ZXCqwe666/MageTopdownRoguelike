@@ -17,5 +17,7 @@ public class TestProjectile : MonoBehaviour
             health.TakeDamage(5);
             Destroy(gameObject);
         }
+        if (collision.gameObject.layer == 8)
+            Destroy(gameObject);
     }
 }
