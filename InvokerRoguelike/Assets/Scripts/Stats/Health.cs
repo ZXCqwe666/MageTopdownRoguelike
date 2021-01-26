@@ -6,10 +6,12 @@ public class Health : MonoBehaviour
     private const float flashDuration = 0.1f;
     private int hp;
     public int maxHp;
-    //public Action characterDied; // maybe death will be handled here too
 
     private SpriteRenderer rend;
     private Material defaultMaterial, whiteFlashMatherial;
+
+    public delegate void EnemyDied();
+    public event EnemyDied enemyDied;
 
     private void Start()
     {
@@ -27,7 +29,10 @@ public class Health : MonoBehaviour
         StartCoroutine(WhiteFlashEffect());
         hp -= _amount;
         if (hp <= 0)
-            Destroy(gameObject); // DEATH LOGIC
+        {
+            enemyDied?.Invoke();
+            Destroy(gameObject);
+        }
     }
     public void Heal(int _amount)
     {

@@ -57,6 +57,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b99ff8d3b88654faf4ba12e149113a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doors: []
+  enemy:
+  - {fileID: 1647632001221664613, guid: 31067ab8069f9344886c30711a22bd07, type: 3}
+  - {fileID: 1647632001221664613, guid: 31067ab8069f9344886c30711a22bd07, type: 3}
 --- !u!1 &5968760911271237530
 GameObject:
   m_ObjectHideFlags: 0

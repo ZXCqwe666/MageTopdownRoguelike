@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1a9a4b26c819a46915285e372bc818, type: 3}
   m_Name: stats
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 0
   mana: 0
   speed: 0
   acceleration: 0
