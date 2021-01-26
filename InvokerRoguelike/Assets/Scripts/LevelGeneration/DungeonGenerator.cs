@@ -10,11 +10,11 @@ public class DungeonGenerator : MonoBehaviour
 {
     private Dictionary<Vector2, Room> spawnedRooms;
     private List<Room> roomVariants;
-    private Tilemap levelWallTilemap, levelFloorTilemap;
+    private Tilemap levelWallTilemap, levelFloorTilemap, levelFloorTilemapSecondary;
     public LevelData[] levelDatas;
 
-    private const float roomGenerationStepTime = 0.05f;
-    private const float boxFillStepTime = 0.025f;
+    private const float roomGenerationStepTime = 0.2f; // 0 05
+    private const float boxFillStepTime = 0.05f; // 0 025
 
     void Start()
     {
@@ -104,7 +104,6 @@ public class DungeonGenerator : MonoBehaviour
         if (roomsToSpawn == 0)
         {
             CloseOpenedRooms(levelData);
-            levelWallTilemap.GetComponent<CompositeCollider2D>().GenerateGeometry();
             StartCoroutine(FillSurroundingArea(levelData));
         }
     }
@@ -132,11 +131,12 @@ public class DungeonGenerator : MonoBehaviour
     private void SpawnRoom(Room chosenRoom, LevelData _levelData, string roomName, bool normalRoom)
     {
         GameObject loadedRoom = Resources.Load<GameObject>("rooms/" + _levelData.levelName + "/" + roomName);
-        Transform roomTransform = loadedRoom.transform;
-        Tilemap wallTilemap = roomTransform.Find("RoomGrid").transform.Find("wall_tilemap").GetComponent<Tilemap>();
-        Tilemap floorTilemap = roomTransform.Find("RoomGrid").transform.Find("floor_tilemap").GetComponent<Tilemap>();
+        Transform roomGrid = loadedRoom.transform.Find("RoomGrid");
+        Tilemap wallTilemap = roomGrid.Find("wall_tilemap").GetComponent<Tilemap>();
+        Tilemap floorTilemap = roomGrid.Find("floor_tilemap").GetComponent<Tilemap>();
+        Tilemap floorTilemapSecondary = roomGrid.Find("floor_tilemap_secondary").GetComponent<Tilemap>();
 
-        if(normalRoom)
+        if (normalRoom)
         {
             GameObject roomManager = Resources.Load<GameObject>("rooms/" + _levelData.levelName + "/" + roomName + "_manager");
             Vector3 roomManagerPosition = new Vector3(chosenRoom.position.x * _levelData.roomSize.x, chosenRoom.position.y * _levelData.roomSize.y, 0f);
@@ -153,6 +153,7 @@ public class DungeonGenerator : MonoBehaviour
             {
                 levelWallTilemap.SetTile(new Vector3Int(x + offset.x, y + offset.y, 0), wallTilemap.GetTile(new Vector3Int(x, y, 0)));
                 levelFloorTilemap.SetTile(new Vector3Int(x + offset.x, y + offset.y, 0), floorTilemap.GetTile(new Vector3Int(x, y, 0)));
+                levelFloorTilemapSecondary.SetTile(new Vector3Int(x + offset.x, y + offset.y, 0), floorTilemapSecondary.GetTile(new Vector3Int(x, y, 0)));
             }
         }
         if (chosenRoom.up) CutWays(false, 1, _levelData.wallTile, offset, new int2(_levelData.roomSize.x / 2 - 1, _levelData.roomSize.y - 3));
@@ -213,7 +214,8 @@ public class DungeonGenerator : MonoBehaviour
         levelWallTilemap.SetTile(new Vector3Int(startX, startY - 1, 0), _levelData.wallTopTile);   
         levelWallTilemap.SetTile(new Vector3Int(endX, endY + 1, 0), _levelData.wallTopTile);
 
-        for(int y = 0; y < roomAmount.y; y++)
+        yield return new WaitForSeconds(boxFillStepTime);
+        /*for(int y = 0; y < roomAmount.y; y++)
         {
             for (int x = 0; x < roomAmount.x; x++)
             {
@@ -222,9 +224,10 @@ public class DungeonGenerator : MonoBehaviour
                 int bEndX = bStartX + _levelData.roomSize.x - 1; // inclusive
                 int bEndY = bStartY + _levelData.roomSize.y - 1; // inclusive
                 levelWallTilemap.BoxFill(new Vector3Int(bStartX, bStartY, 0), _levelData.wallTopTile, bStartX, bStartY, bEndX, bEndY);
+                yield return new WaitForSeconds(boxFillStepTime);
             }
-            yield return new WaitForSeconds(boxFillStepTime * roomAmount.x);
-        }
+        }*/
+        levelWallTilemap.GetComponent<CompositeCollider2D>().GenerateGeometry();
     }
     private void InitializeDungeonGenerator()
     {
@@ -238,6 +241,7 @@ public class DungeonGenerator : MonoBehaviour
         };
         levelWallTilemap = transform.Find("LevelGrid").transform.Find("wall_tilemap").GetComponent<Tilemap>();
         levelFloorTilemap = transform.Find("LevelGrid").transform.Find("floor_tilemap").GetComponent<Tilemap>();
+        levelFloorTilemapSecondary = transform.Find("LevelGrid").transform.Find("floor_tilemap_secondary").GetComponent<Tilemap>();
         Random.InitState(Random.Range(0, int.MaxValue));
     }
 }

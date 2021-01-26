@@ -1,6 +1,6 @@
-﻿using UnityEngine.Tilemaps;
+﻿using System.Collections.Generic;
+using UnityEngine.Tilemaps;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class RoomManager : MonoBehaviour
 {
@@ -17,13 +17,13 @@ public class RoomManager : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
-        { 
-            tileCollider.enabled = false;
-            foreach(Door door in doors)
+        if(collision.TryGetComponent(out PlayerController playerController))
+        {
+            foreach (Door door in doors)
             {
                 door.CloseDoor();
             }
+            tileCollider.enabled = false;
             SpawnEnemies();
         }
     }
@@ -45,7 +45,6 @@ public class RoomManager : MonoBehaviour
                 door.OpenDoor();
             }
     }
-
     private void InitializeRoomManager()
     {
         enemyCount = 0;
@@ -54,12 +53,10 @@ public class RoomManager : MonoBehaviour
         Transform spawnPointsHolder = transform.Find("spawnPointsHolder"); 
         spawnPoints = new List<Transform>();
 
-        #if UNITY_EDITOR
         if(spawnPointsHolder.childCount != enemyIdsToSpawn.Length)
         {
             Debug.LogError("Spawn points doesnt match enemies amount"); //Error debug, delete in final version 
         }
-        #endif
         for(int i = 0; i < spawnPointsHolder.childCount; i++)
         {
             spawnPoints.Add(spawnPointsHolder.GetChild(i));
@@ -67,20 +64,21 @@ public class RoomManager : MonoBehaviour
     }
     public void SetDoors(bool up, bool down, bool left, bool right, LevelData levelData)
     {
-        doors = new List<Door>();
         Vector3 position = transform.position;
-        if (up)
-            InstantiateDoor(levelData.levelName, "doorHorizontal", new Vector3(levelData.roomSize.x / 2, levelData.roomSize.y - 2.5f, 0) + position); // 1 0.5
-        if (down)
-            InstantiateDoor(levelData.levelName, "doorHorizontal", new Vector3(levelData.roomSize.x / 2, -0.5f, 0) + position);//1 -0.5
-        if (left)
-            InstantiateDoor(levelData.levelName, "doorSide", new Vector3(0.5f, levelData.roomSize.y / 2 - 2f, 0) + position );//1 -1.5
-        if (right)
-            InstantiateDoor(levelData.levelName, "doorSide", new Vector3(levelData.roomSize.x - 2 + 1.5f, levelData.roomSize.y / 2 - 2f, 0) + position);//X +1,5 Y-1
-    }
+        doors = new List<Door>();
 
+        if (up)
+            InstantiateDoor(levelData.levelName, "doorHorizontal", new Vector3(levelData.roomSize.x / 2, levelData.roomSize.y - 1.5f, 0) + position);
+        if (down)
+            InstantiateDoor(levelData.levelName, "doorHorizontal", new Vector3(levelData.roomSize.x / 2, 0.5f, 0) + position);
+        if (left)
+            InstantiateDoor(levelData.levelName, "doorSide", new Vector3(0.5f, levelData.roomSize.y / 2 - 1f, 0) + position );
+        if (right)
+            InstantiateDoor(levelData.levelName, "doorSide", new Vector3(levelData.roomSize.x - 2 + 1.5f, levelData.roomSize.y / 2 - 1f, 0) + position);
+    }
     private void InstantiateDoor(string levelName, string objectName, Vector3 position )
     {
-        doors.Add(Instantiate(Resources.Load<GameObject>("rooms/" + levelName + "/doors/" + objectName), position, Quaternion.identity, transform).GetComponent<Door>());
+        GameObject door = Instantiate(Resources.Load<GameObject>("rooms/" + levelName + "/doors/" + objectName), position, Quaternion.identity, transform);
+        doors.Add(door.GetComponent<Door>());
     }
 }

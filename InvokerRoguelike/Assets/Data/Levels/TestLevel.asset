@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallTile: {fileID: 11400000, guid: c8cb1a61ec2cc4a489e76edfcd4d5466, type: 2}
   wallTopTile: {fileID: 11400000, guid: bc7535a7ddb690e449ba83cdf22b151a, type: 2}
-  floorTile: {fileID: 11400000, guid: 089c9f81f782783459c8aeede681b7d4, type: 2}
   roomCount: 1
   levelName: castle
   roomSize:
-    x: 10
-    y: 10
+    x: 30
+    y: 20
   spawnAmount:
     x: 30
     y: 30

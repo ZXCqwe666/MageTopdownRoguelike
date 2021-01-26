@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Vector2 inputs;
-    private readonly float startSpeed = 5f, maxSpeed = 5f, acceleration = 1f, deceleration = 3f;
+    private readonly float startSpeed = 5f;
     private float speed;
 
     private void Start()

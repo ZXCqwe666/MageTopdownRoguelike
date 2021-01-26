@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class testProjectile : MonoBehaviour
+public class TestProjectile : MonoBehaviour
 {
     private Rigidbody2D rb;
     public int speed = 10;
@@ -16,7 +14,6 @@ public class testProjectile : MonoBehaviour
     {
         if(collision.TryGetComponent(out Health health))
         {
-            Debug.Log("Damage done");
             health.TakeDamage(5);
             Destroy(gameObject);
         }

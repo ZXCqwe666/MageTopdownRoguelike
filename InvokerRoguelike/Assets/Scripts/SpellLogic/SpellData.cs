@@ -5,7 +5,7 @@ public class SpellData : ScriptableObject
 {
     public int damage;
     public int manaCost;
-    public int coolDown;
+    public float coolDown;
     public string spellName;
 
     public SpellType spellType;
